@@ -4,9 +4,11 @@ import numpy as np
 from PIL import Image
 
 app = Flask(__name__)
+#model = load_model('C:\Users\User\Downloads\ROS\Project\CNN/model.h5')
 model = load_model('model.h5')
 
 def preprocess_image(image):
+
     img = image.resize((64, 64))
     img = np.array(img) / 255.0
     return img.reshape(1, 64, 64, 3)
